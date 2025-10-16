@@ -1,0 +1,15 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+/* index.css */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif; /* Style áp dụng toàn cục */
+}
+
+.common-header {
+  /* Style chung */
+  background-color: #333;
+}

@@ -11,7 +11,9 @@ const Listsanpham = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("https://fakestoreapi.com/products");
+        const response = await fetch(
+          "https://68f99a87ef8b2e621e7cd04c.mockapi.io/Schena"
+        );
         const data = await response.json();
         setProducts(data);
       } catch (error) {

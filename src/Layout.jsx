@@ -29,6 +29,11 @@ const Layout = () => {
                       SINH VIEN
                     </a>
                   </li>
+                  <li>
+                    <a class="menutrai" href="/Listsanpham">
+                      EGOV
+                    </a>
+                  </li>
                 </ul>
               </nav>
             </div>

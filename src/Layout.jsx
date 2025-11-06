@@ -47,6 +47,7 @@ const Layout = () => {
           <div id="menubar" className="menubar"></div>
         </div>
       </header>
+
       <body>
         <Outlet />
       </body>

@@ -13,7 +13,7 @@
 
   --primary-color: #004d99; /* Màu xanh đậm cho thương hiệu */
 
-  --secondary-color: #ff9900; /* Màu cam nổi bật */
+  --secondary-color: #bd0202; /* Màu cam nổi bật */
 
   --text-color: #333;
 
@@ -423,7 +423,7 @@ body {
 /* MENU BAR (Nằm dưới banner, dùng để phân cách hoặc menu thứ cấp) */
 
 #menubar {
-  height: 5px;
+  height: 50px;
 
   background-color: var(--secondary-color); /* Dùng màu nổi bật */
 

@@ -13,7 +13,10 @@ import Trang2 from "./Trang2";
 import Listsanpham from "./Listsanpham";
 // @ts-ignore
 import ListProducts_SP from "./ListProducts_SP";
-
+// @ts-ignore
+import ListProducts_SP_Admin from "./ListProducts_SP_Admin";
+// @ts-ignore
+import ProtectedRoute from "./ProtectedRoute";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
@@ -27,6 +30,14 @@ const App = () => {
           <Route path="sanpham/:id" element={<Chitietsanpham />} />
           <Route path="trang2" element={<Trang2 />} />
           <Route path="listsanpham" element={<Listsanpham />} />
+          <Route
+            path="admin/products"
+            element={
+              <ProtectedRoute>
+                <ListProducts_SP_Admin />
+              </ProtectedRoute>
+            }
+          />
         </Route>
       </Routes>
     </BrowserRouter>

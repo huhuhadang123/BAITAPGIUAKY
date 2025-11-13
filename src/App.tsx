@@ -18,6 +18,10 @@ import ListProducts_SP_Admin from "./ListProducts_SP_Admin";
 // @ts-ignore
 import ProtectedRoute from "./ProtectedRoute";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+// @ts-ignore
+import LoginPage from "./LoginPage";
+// @ts-ignore
+import ProductDetail from "./ProductDetail";
 
 const App = () => {
   //return <Layout />;
@@ -30,6 +34,12 @@ const App = () => {
           <Route path="sanpham/:id" element={<Chitietsanpham />} />
           <Route path="trang2" element={<Trang2 />} />
           <Route path="listsanpham" element={<Listsanpham />} />
+          <Route path="LoginPage" element={<LoginPage />} />
+          <Route path="ProductDetail" element={<ProductDetail />} />
+          <Route
+            path="ListProducts_SP_Admin"
+            element={<ListProducts_SP_Admin />}
+          />
           <Route
             path="admin/products"
             element={

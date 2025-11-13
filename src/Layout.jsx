@@ -34,6 +34,16 @@ const Layout = () => {
                       LIST SAN PHAM
                     </a>
                   </li>
+                  <li>
+                    <a class="menutrai" href="/ListProducts_SP_Admin">
+                      Quản trị
+                    </a>
+                  </li>
+                  <li>
+                    <a class="menutrai" href="/LoginPage">
+                      Đăng nhập
+                    </a>
+                  </li>
                 </ul>
               </nav>
             </div>
@@ -51,7 +61,51 @@ const Layout = () => {
       <body>
         <Outlet />
       </body>
-      <footer></footer>
+      <footer className="footer">
+        <div className="footer-container">
+          {/* Cột 1: Giới thiệu */}
+          <div className="footer-section">
+            <h3>Store Giày Chính Hãng</h3>
+            <p>
+              Cung cấp Quần Aó Cam kết 100% hàng thật – đổi trả miễn phí trong 7
+              ngày.
+            </p>
+          </div>
+
+          {/* Cột 2: Liên hệ */}
+          <div className="footer-section">
+            <h3>Liên hệ</h3>
+            <ul>
+              <li>🏠 123 Nguyễn Trãi, Quận 1, TP.HCM</li>
+              <li>📞 0901 234 567</li>
+              <li>✉️ contact@storegiay.vn</li>
+            </ul>
+          </div>
+
+          {/* Cột 3: Liên kết nhanh */}
+          <div className="footer-section">
+            <h3>Liên kết nhanh</h3>
+            <ul>
+              <li>
+                <a href="#">Trang chủ</a>
+              </li>
+              <li>
+                <a href="#">Sản phẩm</a>
+              </li>
+              <li>
+                <a href="#">Khuyến mãi</a>
+              </li>
+              <li>
+                <a href="#">Liên hệ</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="footer-bottom">
+          <p>© 2025 Store bán quần áo | Thiết kế bởi Đăng 💙</p>
+        </div>
+      </footer>
     </html>
   );
 };

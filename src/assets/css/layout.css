@@ -493,3 +493,100 @@ footer {
     margin: 0.25rem 0;
   }
 }
+/* LOGO */
+.banner > div:nth-child(2) {
+  /* Đảm bảo logo nằm ở giữa */
+  text-align: center;
+  flex-shrink: 0; /* Ngăn logo bị co lại quá mức */
+}
+
+.banner img {
+  /* Giảm kích thước logo mà không chèn lên các phần khác */
+  max-width: 150px; /* Giảm từ 250px xuống 150px */
+  height: auto;
+  border-radius: 4px;
+
+  /* Đảm bảo logo không ép menu/tìm kiếm */
+  flex-shrink: 0;
+}
+/* Định dạng chung cho footer */
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 40px 0;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.footer-section {
+  width: 30%;
+}
+
+.footer-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.footer-section p,
+.footer-section ul {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.footer-section ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.footer-section li {
+  margin-bottom: 10px;
+}
+
+.footer-section li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section li a:hover {
+  color: #ff6347; /* Màu đỏ cam khi hover */
+}
+
+/* Định dạng cho phần dưới cùng của footer */
+.footer-bottom {
+  text-align: center;
+  font-size: 0.8rem;
+  padding-top: 20px;
+  border-top: 1px solid #444;
+  margin-top: 30px;
+}
+
+.footer-bottom p {
+  color: #ccc;
+}
+
+/* Thêm hiệu ứng hover cho liên kết trong phần liên hệ */
+.footer-section li:hover {
+  background-color: #444;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}

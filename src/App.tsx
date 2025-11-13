@@ -22,7 +22,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./LoginPage";
 // @ts-ignore
 import ProductDetail from "./ProductDetail";
-
+// @ts-ignore
+import EditProduct_SP_Admin from "./EditProduct_SP_Admin";
+// @ts-ignore
 const App = () => {
   //return <Layout />;
   return (
@@ -36,6 +38,10 @@ const App = () => {
           <Route path="listsanpham" element={<Listsanpham />} />
           <Route path="LoginPage" element={<LoginPage />} />
           <Route path="ProductDetail" element={<ProductDetail />} />
+          <Route
+            path="EditProduct_SP_Admin"
+            element={<EditProduct_SP_Admin />}
+          />
           <Route
             path="ListProducts_SP_Admin"
             element={<ListProducts_SP_Admin />}

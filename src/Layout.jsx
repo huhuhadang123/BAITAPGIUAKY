@@ -4,66 +4,76 @@ import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   return (
-    <html>
+    <>
       <header>
-        <link rel="stylesheet" href="assets/css/layout.css" />
-
         <div id="header" className="header">
           <div id="banner" className="banner">
             <div id="divmenutrai">
               <nav id="menutrai">
-                <ul className="menutrai" style={{ width: "250px" }}>
+                <ul className="menutrai">
                   <li>
-                    <a href="/" class="menutrai">
-                      TRANG CHU
+                    <a href="/" className="menutrai">
+                      TRANG CHỦ
                     </a>
                   </li>
                   <li>
-                    <a class="menutrai" href="/trang1">
-                      {" "}
-                      SAN PHAM
+                    <a className="menutrai" href="/trang1">
+                      SẢN PHẨM
                     </a>
                   </li>
                   <li>
-                    <a class="menutrai" href="/trang2">
-                      SINH VIEN
+                    <a className="menutrai" href="/trang2">
+                      SINH VIÊN
                     </a>
                   </li>
                   <li>
-                    <a class="menutrai" href="/Listsanpham">
-                      LIST SAN PHAM
+                    <a className="menutrai" href="/Listsanpham">
+                      DANH SÁCH SẢN PHẨM
                     </a>
                   </li>
-                  <li>
-                    <a class="menutrai" href="/ListProducts_SP_Admin">
-                      Quản trị
-                    </a>
-                  </li>
-                  <li>
-                    <a class="menutrai" href="/LoginPage">
-                      Đăng nhập
-                    </a>
-                  </li>
+                  {/* Hai mục này đã được di chuyển lên #menubar */}
                 </ul>
               </nav>
             </div>
-            <div style={{ width: "1000px" }}>
+            <div>
               <a href="/">
-                <img src={logo} width="500" height="80" />
+                <img src={logo} alt="Logo" />
               </a>
             </div>
-            <div>Tim kiem</div>
+            <div>Tìm kiếm</div>
           </div>
-          <div id="menubar" className="menubar"></div>
+
+          {/* --- PHẦN ĐÃ SỬA: THANH ĐIỀU HƯỚNG NGANG (NAVBAR) --- */}
+          <div id="menubar" className="menubar">
+            <nav id="topnav">
+              <ul className="topnav-list">
+                <li>
+                  <a
+                    className="nav-link admin-link"
+                    href="/ListProducts_SP_Admin"
+                  >
+                    QUẢN LÝ SẢN PHẨM
+                  </a>
+                </li>
+                <li>
+                  <a className="nav-link login-link" href="/LoginPage">
+                    ĐĂNG NHẬP HỆ THỐNG
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          {/* ---------------------------------------------------- */}
         </div>
       </header>
 
-      <body>
+      <div className="outlet-container">
         <Outlet />
-      </body>
+      </div>
+
       <footer className="footer">
+        {/* Nội dung footer giữ nguyên */}
         <div className="footer-container">
-          {/* Cột 1: Giới thiệu */}
           <div className="footer-section">
             <h3>Store Giày Chính Hãng</h3>
             <p>
@@ -71,8 +81,6 @@ const Layout = () => {
               ngày.
             </p>
           </div>
-
-          {/* Cột 2: Liên hệ */}
           <div className="footer-section">
             <h3>Liên hệ</h3>
             <ul>
@@ -81,8 +89,6 @@ const Layout = () => {
               <li>✉️ contact@storegiay.vn</li>
             </ul>
           </div>
-
-          {/* Cột 3: Liên kết nhanh */}
           <div className="footer-section">
             <h3>Liên kết nhanh</h3>
             <ul>
@@ -101,12 +107,11 @@ const Layout = () => {
             </ul>
           </div>
         </div>
-
         <div className="footer-bottom">
           <p>© 2025 Store bán quần áo | Thiết kế bởi Đăng 💙</p>
         </div>
       </footer>
-    </html>
+    </>
   );
 };
 export default Layout;

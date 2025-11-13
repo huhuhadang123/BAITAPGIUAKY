@@ -1,592 +1,340 @@
-/* Thiết lập cơ bản (Reset/Normalize) */
-
-* {
-  box-sizing: border-box; /* Rất quan trọng cho layout linh hoạt */
-
-  margin: 0;
-
-  padding: 0;
-}
-
+/* Thiết lập biến màu sắc chung */
 :root {
-  /* Định nghĩa các biến CSS để quản lý màu sắc, khoảng cách dễ dàng hơn */
-
-  --primary-color: #004d99; /* Màu xanh đậm cho thương hiệu */
-
-  --secondary-color: #bd0202; /* Màu cam nổi bật */
-
-  --text-color: #333;
-
-  --bg-light: #f4f4f4;
-
-  --spacing-md: 1rem; /* RESET/NORMALIZE VÀ BIẾN */
-
-  * {
-    box-sizing: border-box;
-
-    margin: 0;
-
-    padding: 0;
-  }
-
-  :root {
-    --primary-blue: #0056b3; /* Màu thương hiệu đậm */
-
-    --secondary-accent: #ff9900; /* Màu nhấn */
-
-    --text-dark: #2c3e50;
-
-    --bg-light: #f8f9fa;
-
-    --border-radius-sm: 4px;
-
-    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
-  }
-
-  body {
-    font-family: "Inter", sans-serif; /* Phông chữ hiện đại hơn */
-
-    color: var(--text-dark);
-
-    line-height: 1.6;
-
-    background-color: var(--bg-light);
-  }
-
-  /* 1. LAYOUT TỔNG THỂ DÙNG CSS GRID */
-
-  .app-container {
-    display: grid;
-
-    /* Cấu trúc 3 hàng: Header (auto), Main (1fr), Footer (auto) */
-
-    grid-template-rows: auto 1fr auto;
-
-    min-height: 100vh; /* Đảm bảo footer luôn ở cuối */
-  }
-
-  /* 2. HEADER CHUYÊN NGHIỆP */
-
-  .main-header {
-    background-color: white;
-
-    box-shadow: var(--shadow-light); /* Đổ bóng tinh tế */
-
-    padding: 0 2rem;
-  }
-
-  .header-top-bar {
-    display: flex;
-
-    justify-content: space-between; /* Tách logo, nav, search */
-
-    align-items: center; /* Căn giữa theo chiều dọc */
-
-    max-width: 1400px; /* Chiều rộng lớn hơn */
-
-    margin: 0 auto;
-
-    padding: 1rem 0;
-  }
-
-  /* LOGO VÀ HÌNH ẢNH */
-
-  .logo-area {
-    display: block;
-  }
-
-  .logo-image {
-    max-width: 250px; /* Giảm kích thước logo */
-
-    height: auto;
-
-    vertical-align: middle;
-  }
-
-  /* MENU CHÍNH (NAV) */
-
-  .main-nav {
-    flex-grow: 1; /* Cho phép nav chiếm không gian ở giữa */
-
-    text-align: center;
-  }
-
-  .nav-list {
-    display: flex;
-
-    justify-content: center; /* Căn giữa các mục menu */
-
-    list-style: none;
-  }
-
-  .nav-list li {
-    margin: 0 1.2rem;
-  }
-
-  .nav-list a {
-    text-decoration: none;
-
-    color: var(--text-dark);
-
-    font-weight: 600; /* In đậm vừa phải */
-
-    padding: 0.5rem 0;
-
-    position: relative;
-
-    text-transform: uppercase;
-  }
-
-  /* Hiệu ứng gạch dưới hiện đại */
-
-  .nav-list a::after {
-    content: "";
-
-    position: absolute;
-
-    bottom: -5px;
-
-    left: 0;
-
-    width: 0;
-
-    height: 3px;
-
-    background-color: var(--primary-blue);
-
-    transition: width 0.3s ease-out;
-  }
-
-  .nav-list a:hover::after {
-    width: 100%;
-  }
-
-  /* KHU VỰC TÌM KIẾM */
-
-  .search-widget {
-    display: flex;
-
-    border: 2px solid var(--bg-light);
-
-    border-radius: 20px;
-
-    overflow: hidden;
-
-    transition: border-color 0.3s;
-  }
-
-  .search-widget:focus-within {
-    border-color: var(--primary-blue);
-  }
-
-  .search-widget input {
-    border: none;
-
-    padding: 0.5rem 1rem;
-
-    outline: none;
-
-    font-size: 0.9rem;
-
-    width: 150px;
-
-    background: transparent;
-  }
-
-  .search-btn {
-    background-color: var(--primary-blue);
-
-    border: none;
-
-    color: white;
-
-    padding: 0.5rem 0.8rem;
-
-    cursor: pointer;
-  }
-
-  /* 3. NỘI DUNG VÀ FOOTER */
-
-  .main-content-area {
-    padding: 2rem;
-
-    max-width: 1400px;
-
-    margin: 0 auto;
-
-    width: 100%;
-  }
-
-  .main-footer {
-    padding: 2rem;
-
-    background-color: var(--text-dark);
-
-    color: var(--bg-light);
-
-    text-align: center;
-
-    font-size: 0.85rem;
-  }
-
-  /* 4. RESPONSIVE (Cho điện thoại) */
-
-  @media (max-width: 1024px) {
-    /* Thay đổi cách sắp xếp trên Tablet/Laptop nhỏ */
-
-    .header-top-bar {
-      flex-wrap: wrap;
-
-      justify-content: center;
-
-      text-align: center;
-    }
-
-    .logo-area {
-      width: 100%;
-
-      margin-bottom: 1rem;
-    }
-
-    .main-nav {
-      order: 3; /* Đẩy menu xuống dưới cùng */
-
-      width: 100%;
-
-      margin-top: 1rem;
-    }
-
-    .nav-list {
-      justify-content: space-around; /* Phân bố đều các mục */
-    }
-
-    .search-widget {
-      order: 2; /* Đẩy tìm kiếm sang phải */
-
-      margin-right: 0;
-    }
-  }
-
-  @media (max-width: 768px) {
-    /* Trên điện thoại, xếp menu thành cột */
-
-    .header-top-bar {
-      padding: 0.5rem 0;
-    }
-
-    .nav-list {
-      flex-direction: column;
-
-      align-items: center;
-    }
-
-    .nav-list li {
-      margin: 0.5rem 0;
-
-      width: 100%;
-    }
-  }
-
-  --spacing-lg: 2rem;
+  --primary-color: #007bff; /* Xanh dương chủ đạo */
+  --secondary-color: #f0f2f5; /* Nền nhẹ nhàng */
+  --header-bg-light: #e6f0ff; /* MÀU XANH NHẠT CHO HEADER */
+  --admin-color: #dc3545;
+  --login-color: #28a745;
+  --text-dark: #333;
+  --text-light: #ffffff;
+  --footer-bg: #343a40;
 }
 
+/* Thiết lập cơ bản cho toàn bộ trang */
 body {
-  font-family: "Arial", sans-serif; /* Chọn phông chữ hiện đại */
-
-  color: var(--text-color);
-
-  background-color: var(--bg-light);
-
-  min-height: 100vh; /* Đảm bảo chiều cao tối thiểu cho toàn trang */
-
-  display: flex; /* Dùng flex để quản lý Header, Body, Footer */
-
-  flex-direction: column;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--secondary-color);
+  color: var(--text-dark);
 }
 
-/* Ẩn thẻ <html> và <body> của React Fragment (giả định) */
-
-.Layout {
-  display: flex;
-
-  flex-direction: column;
-
-  min-height: 100vh;
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease; /* Hiệu ứng chuyển màu link */
 }
 
-/* HEADER - Khu vực chứa Banner */
+/* ---------------- HEADER & BANNER ---------------- */
 
 .header {
-  background-color: white;
-
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng nhẹ nhàng */
+  background-color: var(--header-bg-light); /* Màu xanh nhạt */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Bóng đổ tinh tế */
 }
-
-/* BANNER - Dùng Flexbox để căn chỉnh logo, menu và tìm kiếm */
 
 .banner {
   display: flex;
-
-  justify-content: space-between; /* Phân bổ không gian giữa các mục */
-
-  align-items: center; /* Căn giữa theo chiều dọc */
-
-  max-width: 1200px; /* Giới hạn chiều rộng nội dung */
-
-  margin: 0 auto; /* Căn giữa banner */
-
-  padding: var(--spacing-md) 0;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
 }
 
-/* LOGO */
-
+/* Khu vực Logo */
 .banner > div:nth-child(2) {
-  /* Đảm bảo logo nằm ở giữa */
-
+  flex-grow: 1;
   text-align: center;
 }
 
+/* Điều chỉnh kích thước Logo */
 .banner img {
-  /* Điều chỉnh kích thước và thêm bo góc nhẹ cho logo */
-
-  max-width: 100%;
-
+  width: 180px;
   height: auto;
-
-  border-radius: 4px;
+  margin: 0 30px;
+  vertical-align: middle;
 }
 
-/* MENU TRÁI (Đã được chuyển thành Menu Ngang cho Header hiện đại) */
+/* Khu vực tìm kiếm (Chỉ là chữ "Tìm kiếm" trong JSX gốc) */
+/* Cần thay thế bằng khung tìm kiếm thực tế để áp dụng CSS bên dưới */
+.banner > div:last-child {
+  width: 150px;
+  text-align: right;
+  font-weight: 600;
+  color: #555;
+}
+
+/* ---------------- MENU DỌC BÊN TRÁI (CHÍNH) ---------------- */
 
 #divmenutrai {
-  /* Dành cho các thiết bị lớn, menu trái nên nằm bên trái hoặc chuyển thành ngang */
-
-  width: auto;
+  width: 250px;
+  background-color: var(--header-bg-light); /* Giữ màu header */
+  padding-right: 15px;
 }
 
-#menutrai > .menutrai {
-  display: flex; /* Chuyển menu thành hàng ngang */
-
-  list-style: none; /* Bỏ dấu chấm đầu dòng */
-
-  margin: 0;
-
+.menutrai {
+  list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .menutrai li a {
-  display: block;
-
-  text-decoration: none;
-
-  color: var(--primary-color);
-
-  padding: 0.5rem 1rem;
-
-  font-weight: bold;
-
-  text-transform: uppercase;
-
-  transition: background-color 0.3s, color 0.3s;
-
-  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  color: var(--text-dark);
+  font-weight: 500;
+  transition: all 0.3s ease; /* Tăng thời gian chuyển động */
+  border-left: 3px solid transparent;
+  position: relative;
 }
 
 .menutrai li a:hover {
-  background-color: var(--primary-color);
-
-  color: white;
-}
-
-/* KHU VỰC TÌM KIẾM */
-
-.banner > div:last-child {
-  /* Đổi 'Tim kiem' thành ô input đẹp hơn */
-
-  padding: 0.5rem 1rem;
-
+  background-color: #e9ecef;
   color: var(--primary-color);
-
-  border: 1px solid #ccc;
-
-  border-radius: 20px;
-
-  cursor: pointer;
-
-  transition: background-color 0.3s;
+  border-left: 3px solid var(--primary-color);
+  transform: translateX(5px); /* Hiệu ứng dịch chuyển nhẹ */
 }
 
-.banner > div:last-child:hover {
-  background-color: var(--bg-light);
-}
+/* ---------------- THANH ĐIỀU HƯỚNG NGANG (NAVBAR) ---------------- */
 
-/* MENU BAR (Nằm dưới banner, dùng để phân cách hoặc menu thứ cấp) */
-
-#menubar {
-  height: 50px;
-
-  background-color: var(--secondary-color); /* Dùng màu nổi bật */
-
-  width: 100%;
-}
-
-/* BODY CONTENT (Nội dung chính) */
-
-main {
-  flex-grow: 1; /* Rất quan trọng: cho phép nội dung chiếm hết không gian còn lại */
-
-  padding: var(--spacing-lg);
-
-  max-width: 1200px;
-
-  margin: 0 auto;
-
-  width: 100%;
-}
-
-/* FOOTER */
-
-footer {
-  padding: var(--spacing-lg);
-
-  background-color: var(--primary-color);
-
-  color: white;
-
-  text-align: center;
-
-  font-size: 0.9rem;
-}
-
-/* RESPONSIVE (Dành cho màn hình nhỏ hơn) */
-
-@media (max-width: 768px) {
-  .banner {
-    flex-direction: column; /* Xếp logo, menu, tìm kiếm thành cột */
-
-    text-align: center;
-  }
-
-  #divmenutrai {
-    order: 3; /* Đặt menu xuống dưới cùng */
-
-    margin-top: var(--spacing-md);
-  }
-
-  .banner > div:nth-child(2) {
-    order: 1; /* Đặt logo lên đầu */
-  }
-
-  .banner > div:last-child {
-    order: 2; /* Đặt tìm kiếm ở giữa */
-
-    margin-top: var(--spacing-md);
-  }
-
-  #menutrai > .menutrai {
-    flex-direction: column; /* Xếp các mục menu thành cột */
-
-    align-items: center;
-  }
-
-  .menutrai li {
-    margin: 0.25rem 0;
-  }
-}
-/* LOGO */
-.banner > div:nth-child(2) {
-  /* Đảm bảo logo nằm ở giữa */
-  text-align: center;
-  flex-shrink: 0; /* Ngăn logo bị co lại quá mức */
-}
-
-.banner img {
-  /* Giảm kích thước logo mà không chèn lên các phần khác */
-  max-width: 150px; /* Giảm từ 250px xuống 150px */
+.menubar {
   height: auto;
-  border-radius: 4px;
-
-  /* Đảm bảo logo không ép menu/tìm kiếm */
-  flex-shrink: 0;
+  background-color: var(--primary-color);
+  padding: 0 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* Bóng đổ dưới navbar */
 }
-/* Định dạng chung cho footer */
+
+.topnav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.topnav-list li {
+  margin: 0 0;
+}
+
+.nav-link {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: var(--text-light);
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+.nav-link:hover {
+  background-color: #0056b3;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px); /* Hiệu ứng nổi */
+}
+
+/* Định kiểu riêng cho các mục Đăng nhập/Quản lý */
+.topnav-list .admin-link {
+  background-color: var(--admin-color);
+}
+
+.topnav-list .admin-link:hover {
+  background-color: #c82333;
+}
+
+.topnav-list .login-link {
+  background-color: var(--login-color);
+}
+
+.topnav-list .login-link:hover {
+  background-color: #218838;
+}
+
+/* ---------------- BODY CONTENT ---------------- */
+
+.outlet-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: var(--text-light);
+  min-height: 500px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.08); /* Bóng đổ cho khung nội dung */
+}
+
+/* ---------------- FOOTER ---------------- */
+
 .footer {
-  background-color: #333;
-  color: white;
-  padding: 40px 0;
-  font-family: Arial, sans-serif;
+  background-color: var(--footer-bg);
+  color: #e9ecef;
+  padding: 40px 20px 20px;
+  margin-top: 30px;
 }
 
 .footer-container {
   display: flex;
-  justify-content: space-between;
-  padding: 0 20px;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
 }
 
 .footer-section {
-  width: 30%;
+  width: 28%;
+  margin-bottom: 20px;
 }
 
 .footer-section h3 {
-  font-size: 1.2rem;
-  margin-bottom: 15px;
-  font-weight: bold;
-  color: #fff;
-}
-
-.footer-section p,
-.footer-section ul {
-  font-size: 0.9rem;
-  line-height: 1.5;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  font-weight: 600;
 }
 
 .footer-section ul {
-  padding-left: 0;
-  list-style-type: none;
+  list-style: none;
+  padding: 0;
 }
 
-.footer-section li {
+.footer-section ul li {
   margin-bottom: 10px;
+  line-height: 1.5;
+  font-size: 0.95em;
 }
 
-.footer-section li a {
-  color: #fff;
-  text-decoration: none;
-  transition: color 0.3s ease;
+.footer-section a {
+  color: #adb5bd;
+  transition: color 0.3s, padding-left 0.3s;
 }
 
-.footer-section li a:hover {
-  color: #ff6347; /* Màu đỏ cam khi hover */
+.footer-section a:hover {
+  color: var(--text-light);
+  padding-left: 5px; /* Hiệu ứng dịch chuyển nhẹ */
 }
 
-/* Định dạng cho phần dưới cùng của footer */
 .footer-bottom {
   text-align: center;
-  font-size: 0.8rem;
   padding-top: 20px;
-  border-top: 1px solid #444;
-  margin-top: 30px;
+  border-top: 1px solid #495057;
+  margin-top: 20px;
+  font-size: 0.8em;
+  color: #adb5bd;
 }
 
-.footer-bottom p {
-  color: #ccc;
-}
+/* ---------------- KHU VỰC TÌM KIẾM (HIỆU ỨNG XUNG QUANH) ---------------- */
 
-/* Thêm hiệu ứng hover cho liên kết trong phần liên hệ */
-.footer-section li:hover {
-  background-color: #444;
-  border-radius: 5px;
+.search-container {
+  /* Nếu bạn thay thế div "Tìm kiếm" bằng cấu trúc tìm kiếm, hãy dùng class này */
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  /* Hiệu ứng xung quanh */
   padding: 5px;
+  border-radius: 30px;
+  transition: all 0.3s ease-in-out;
 }
 
-@media (max-width: 768px) {
+.search-container:hover {
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3); /* Bóng đổ khi hover */
+  border: 1px solid var(--primary-color);
+}
+
+.search-form {
+  display: flex;
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  overflow: hidden;
+  height: 40px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search-form:focus-within {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+.search-input {
+  border: none;
+  padding: 0 15px;
+  flex-grow: 1;
+  outline: none;
+  font-size: 1em;
+}
+
+.search-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0 15px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+.search-button:hover {
+  background-color: #0056b3;
+}
+
+.search-button:active {
+  transform: scale(0.95);
+}
+
+/* ---------------- RESPONSIVE CƠ BẢN ---------------- */
+@media (max-width: 992px) {
+  .banner {
+    flex-direction: column;
+    padding: 10px 10px;
+  }
+
+  .banner > div:nth-child(2) {
+    margin: 10px 0;
+  }
+
+  #divmenutrai {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .menutrai {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .menutrai li a {
+    padding: 8px 10px;
+    border-left: none;
+    border-bottom: 2px solid transparent;
+  }
+
+  .menutrai li a:hover {
+    transform: none;
+    border-left: none;
+    border-bottom: 2px solid var(--primary-color);
+  }
+
+  .topnav-list {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .topnav-list li {
+    margin: 5px 2px;
+  }
+
   .footer-container {
     flex-direction: column;
-    align-items: center;
   }
 
   .footer-section {
-    width: 100%;
-    margin-bottom: 20px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
